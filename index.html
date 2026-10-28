@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Japanese vocabulary lookup with hiragana, English, Sinhala and example sentences." />
+  <title>Japanese Vocabulary AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&family=Noto+Sans+Sinhala:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page-shell">
+    <header class="hero">
+      <p class="eyebrow">✦ Japanese learning tool</p>
+      <h1>Japanese Vocabulary AI</h1>
+      <p class="intro">Enter a Japanese word in kanji or hiragana to see its pronunciation, English meaning, Sinhala meaning, and an example sentence.</p>
+      <p class="language-pill">日本語 · English · <span lang="si">සිංහල</span></p>
+    </header>
+
+    <section class="search-card" aria-labelledby="search-title">
+      <h2 id="search-title">Japanese word</h2>
+      <div class="search-row">
+        <input id="wordInput" type="text" lang="ja" inputmode="text" autocomplete="off" placeholder="例：確認、かくにん、見積書" aria-label="Japanese word" />
+        <button id="searchButton" type="button">Analyze</button>
+      </div>
+      <p id="status" class="status" aria-live="polite"></p>
+      <div id="suggestions" class="suggestions" aria-label="Example words"></div>
+    </section>
+
+    <section id="emptyState" class="empty-state">
+      <div class="empty-icon">本</div>
+      <h2>Your result will appear here</h2>
+      <p>Enter a kanji or hiragana word above, then select Analyze.</p>
+    </section>
+
+    <section id="resultCard" class="result-card hidden" aria-live="polite">
+      <div class="result-header">
+        <div>
+          <p class="result-label">Vocabulary result</p>
+          <div class="word-line">
+            <h2 id="resultWord" lang="ja"></h2>
+            <button id="wordAudio" class="icon-button" type="button" aria-label="Listen to word">🔊</button>
+          </div>
+          <p id="resultHiragana" class="hiragana" lang="ja"></p>
+          <p id="resultType" class="word-type"></p>
+        </div>
+      </div>
+
+      <div class="result-body">
+        <div class="meaning-grid">
+          <article class="meaning-box english-box">
+            <h3>English meaning</h3>
+            <p id="resultEnglish"></p>
+          </article>
+          <article class="meaning-box sinhala-box">
+            <h3>Sinhala meaning / <span lang="si">සිංහල තේරුම</span></h3>
+            <p id="resultSinhala" class="sinhala" lang="si"></p>
+          </article>
+        </div>
+
+        <article class="sentence-box">
+          <div class="sentence-title-row">
+            <h3>Example sentence</h3>
+            <button id="sentenceAudio" class="listen-button" type="button">🔊 Listen</button>
+          </div>
+          <p id="resultSentence" class="japanese-sentence" lang="ja"></p>
+          <p id="resultSentenceHiragana" class="sentence-reading" lang="ja"></p>
+          <div class="translation-grid">
+            <div>
+              <h4>English</h4>
+              <p id="resultSentenceEnglish"></p>
+            </div>
+            <div class="sinhala-translation">
+              <h4>Sinhala / <span lang="si">සිංහල</span></h4>
+              <p id="resultSentenceSinhala" class="sinhala" lang="si"></p>
+            </div>
+          </div>
+        </article>
+
+        <div class="actions">
+          <button id="copyButton" class="secondary-button" type="button">Copy result</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="history-card">
+      <div class="history-title-row">
+        <h2>Recent words</h2>
+        <button id="clearHistory" class="text-button" type="button">Clear</button>
+      </div>
+      <div id="historyList" class="history-list"></div>
+    </section>
+
+    <footer>
+      <p>Static GitHub Pages edition. Vocabulary is stored in <code>script.js</code>.</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
